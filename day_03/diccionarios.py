@@ -9,6 +9,8 @@ print(cliente)
 
 # Navegar entre diccionarios
 dic = {'c1': 55, 'c2': [10, 20, 30], 'c3': {'s1': 100, 's2': 200, 's3': 300}}
+print('Navegacion entre diccionarios')
+print(dic['c1'])
 print(dic['c2'][1])
 print(dic['c3']['s1'])
 
