@@ -1,14 +1,14 @@
 from random import choice
 
 diccionario_letras = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'}
-lista_palabras = ['python', 'java', 'kotlin', 'javascript']
+palabras = ['python', 'java', 'kotlin', 'javascript']
 num_caracteres = 0
-caracteres_validos = list()
-caracteres_invalidos = list()
+letras_correctas = list()
+letras_incorrectas = list()
 
 
-def seleccionar_palabra():
-    return choice(lista_palabras)
+def elegir_palabra():
+    return choice(palabras)
 
 
 def letra_es_valida(letra):
@@ -36,18 +36,18 @@ def solicitar_letras(n_caracteres):
 
             if letra_es_valida(letra):
 
-                if letra in palabra_secreta:
+                if letra_en_palabra(letra):
                     posicion_letra = palabra_secreta.index(letra)
-                    caracteres_validos[posicion_letra] = letra
-                    print(caracteres_validos)
+                    letras_correctas[posicion_letra] = letra
+                    print(letras_correctas)
                     n_caracteres += 1
                     if n_caracteres == len(palabra_secreta):
                         print(f'¡Felicidades! Has adivinado la palabra secreta: "{palabra_secreta}", te quedaron {vidas} vidas.')
                         vidas -= 1
                         return
                 else:
-                    caracteres_invalidos.append(letra)
-                    print(f'Lo siento, la letra "{letra}" no está en la palabra secreta. {caracteres_invalidos}')
+                    letras_incorrectas.append(letra)
+                    print(f'Lo siento, la letra "{letra}" no está en la palabra secreta. {letras_incorrectas}')
                     validacion_letra = False
                     vidas -= 1
             else:
@@ -59,12 +59,12 @@ def bienvenida():
     print("Cuentas con 6 vidas para adivinar la palabra secreta.")
 
     for letra in palabra_secreta:
-        caracteres_validos.append('-')
-    print(caracteres_validos)
+        letras_correctas.append('-')
+    print(letras_correctas)
     print('\n')
 
 
-palabra_secreta = seleccionar_palabra()
+palabra_secreta = elegir_palabra()
 num_letras_secretas = len(palabra_secreta)
 
 bienvenida()
