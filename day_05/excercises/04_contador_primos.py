@@ -1,13 +1,20 @@
-def contar_primos(number):
-    contador = 2
-    lista_primos = []
-    while contador < number + 1:
+def contar_primos(numero):
+    contador = 3
+    lista_primos = [2]
 
-        if contador % 2 == 1:
+    if numero < 2:
+        return 0
+
+    while contador <= numero:
+        for n in range(3, contador, 2):
+            if contador % n == 0:
+                contador += 2
+                break
+        else:
             lista_primos.append(contador)
-            print(contador)
+            contador += 2
+    print(lista_primos)
+    return len(lista_primos)
 
-        contador += 1
 
-
-contar_primos(20)
+print(contar_primos(50))
