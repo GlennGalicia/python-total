@@ -1,10 +1,13 @@
 def ceros_consecutivos(*args):
-    anterior = 0
+    contador = 0
 
     for numero in args:
-        if numero == 0 and anterior == 0:
+
+        if contador + 1 == len(args):
+            return False
+        elif args[contador] == 0 and args[contador + 1] == 0:
             return True
-        anterior = numero
+        contador += 1
     return False
 
 
