@@ -20,6 +20,9 @@ def letra_es_valida(letra):
         return False
     return True
 
+def letra_en_palabra(letra):
+    return letra in palabra_secreta
+
 
 def solicitar_letras(n_caracteres):
     vidas = 6
