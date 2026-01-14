@@ -1,6 +1,6 @@
 ## 📘 Day 7
 
-### Principios Básicos de POO
+### OOP
 
 ```py
 ```

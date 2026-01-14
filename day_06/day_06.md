@@ -1,6 +1,6 @@
 ## 📘 Day 6
 
-### Gestion de Archivos
+### File Management
 
 ```py
 ```
