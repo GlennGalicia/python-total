@@ -1,6 +1,6 @@
-## 📘 Day 1
+# 📘 Day 1
 
-### Print Function
+## Print Function
 
 Python's `print()` function is used to output text or other data to the console.
 
@@ -15,7 +15,7 @@ print("Hello", "Python", 3.8)  # Hello Python 3.8
 print("Hello", "Python", sep="-")  # Hello-Python
 ```
 
-### input() built-in function
+## input() built-in function
 
 The `input()` function allows you to take user input from the console.
 
