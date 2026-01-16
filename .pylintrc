@@ -1,0 +1,56 @@
+[MASTER]
+ignore=venv,.venv,__pycache__
+load-plugins=
+jobs=0
+persistent=yes
+
+[MESSAGES CONTROL]
+disable=
+    C0114,  # missing-module-docstring
+    C0115,  # missing-class-docstring
+    C0116,  # missing-function-docstring
+    R0903,  # too-few-public-methods
+    R0913,  # too-many-arguments
+    R0914   # too-many-locals
+
+[FORMAT]
+max-line-length=88
+indent-string='    '
+#expected-line-ending-format=LF
+
+
+[BASIC]
+good-names=i,j,k,ex,Run,_
+
+[NAMING]
+module-naming-style=snake_case
+function-naming-style=snake_case
+method-naming-style=snake_case
+variable-naming-style=snake_case
+class-naming-style=PascalCase
+const-naming-style=snake_case
+
+[DESIGN]
+max-args=5
+max-locals=15
+max-returns=6
+max-branches=12
+max-statements=50
+
+[IMPORTS]
+known-standard-library=
+known-third-party=
+allow-wildcard-with-all=no
+
+[TYPECHECK]
+ignored-modules=
+
+[REPORTS]
+output-format=colorized
+reports=no
+score=yes
+
+[SIMILARITIES]
+min-similarity-lines=4
+ignore-imports=yes
+ignore-signatures=yes
