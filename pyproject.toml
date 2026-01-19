@@ -8,4 +8,5 @@ dependencies = []
 [dependency-groups]
 dev = [
     "pylint>=3.3.9",
+    "send2trash>=2.1.0",
 ]
