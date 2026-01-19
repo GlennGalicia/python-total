@@ -1,6 +1,6 @@
-## 📘 Day 3
+# 📘 Day 3
 
-### String Methods
+## String Methods
 
 ```py
 sample_str = " Hello, Python World! "
@@ -41,7 +41,7 @@ str_list = ["Hello", "from", "Python"]
 joined_str = " ".join(str_list)  # "Hello from Python"
 ```
 
-### Slice Strings
+## Slice Strings
 
 ```py
 sample_str = "Hello, Python World!"
@@ -59,7 +59,7 @@ slice3 = sample_str[:5]  # "Hello"
 slice4 = sample_str[::2]  # "Hlo yhnWrd"
 ```
 
-### Lists
+## Lists
 
 Is a collection which is ordered and changeable(modifiable). Allows duplicate members.
 A list is collection of different data types which is ordered and modifiable(mutable). A list can be empty or it may have different data type items.
@@ -129,7 +129,7 @@ for item in sample_list:
     print(item)  # prints each item in the list
 ```
 
-### Dicctionaries
+## Dicctionaries
 
 A dictionary is a collection which is unordered, changeable and indexed. In Python dictionaries are written
 
@@ -191,7 +191,7 @@ for key, value in copied_dict.items():
     print(f"{key}: {value}")  # prints each key-value pair
 ```
 
-### Tuples
+## Tuples
 
 A tuple is a collection of different data types which is ordered and unchangeable (immutable). Tuples are written with round brackets, (). Once a tuple is created, we cannot change its values. We cannot use add, insert, remove methods in a tuple because it is not modifiable (mutable). Unlike list, tuple has few methods. Methods related to tuples:
 
@@ -243,7 +243,7 @@ for item in sample_tuple:
     print(item)  # prints each item in the tuple
 ```
 
-### Sets
+## Sets
 
 Set is a collection of unordered and un-indexed distinct elements. In Python set is used to store unique items, and it is possible to find the union, intersection, difference, symmetric difference, subset, super set and disjoint set among sets.
 

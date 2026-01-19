@@ -1,6 +1,6 @@
-## 📘 Day 2
+# 📘 Day 2
 
-### Variables and Data Types
+## Variables and Data Types
 
 ```py
 # Integer
@@ -20,7 +20,7 @@ Check Data types: To check the data type of certain data/variable we use the _ty
 - `type(height)` will return `<class 'float'>`
 - `type(name)` will return `<class 'str'>`
 
-### Basic Arithmetic Operations
+## Basic Arithmetic Operations
 
 ```py
 a = 10
@@ -44,7 +44,7 @@ exp_result = a ** b  # 1000
 rounded_value = round(3.14159, 2)  # 3.
 ```
 
-### String Formatting
+## String Formatting
 
 String formatting allows you to create strings with dynamic content.
 
@@ -58,7 +58,7 @@ greet = f"My name is {name} and I am {age} years old."
 greeting = "My name is {} and I am {} years old.".format(name, age)
 ```
 
-### Type Conversions: Integer, Float, String
+## Type Conversions: Integer, Float, String
 
 ```py
 # Converting integer to float, string
