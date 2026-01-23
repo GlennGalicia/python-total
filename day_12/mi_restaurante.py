@@ -30,7 +30,7 @@ panel_izquierdo = Frame(aplicacion, bd=0, relief=FLAT)
 panel_izquierdo.pack(side=LEFT)
 
 # Panel costos
-panel_costos = Frame(panel_izquierdo, bd=0, relief=FLAT)
+panel_costos = Frame(panel_izquierdo, bd=0, relief=FLAT,padx=50)
 panel_costos.pack(side=BOTTOM)
 
 # Panel comidas
@@ -64,45 +64,206 @@ panel_botones.pack()
 # Lista de productos
 lista_comidas = ['Pollo', 'Cordero', 'Pescado', 'Salmon', 'Kebab', 'Pizza 1', 'Pizza 2', 'Pizza 3']
 lista_bebidas = ['Agua', 'Soda', 'Jugo', 'Cola', 'Vino 1', 'Vino 2', 'Cerveza 1', 'Cerveza 3']
-lista_postres = ['Helado', 'Fruta', 'Browni','Flan', 'Muse', 'Pastel 1', 'Pastel 2', 'Pastel 3']
+lista_postres = ['Helado', 'Fruta', 'Browni', 'Flan', 'Muse', 'Pastel 1', 'Pastel 2', 'Pastel 3']
 
 # generar items comida
 variables_comida = []
+cuadros_comida = []
+texto_comida = []
+contador_comida = 0
+for comida in lista_comidas:
+    # crear checkbuttons
+    variables_comida.append('')
+    variables_comida[contador_comida] = IntVar()
+    comida = Checkbutton(panel_comida,
+                         text=comida.title(),
+                         font=('Dosis', 19, 'bold'),
+                         onvalue=1,
+                         offvalue=0,
+                         variable=variables_comida[contador_comida])
+    comida.grid(row=contador_comida,
+                column=0,
+                sticky=W)
+
+    # crear los cuadros de entrada
+    cuadros_comida.append('')
+    texto_comida.append('')
+    texto_comida[contador_comida] = StringVar()
+    texto_comida[contador_comida].set('0')
+    cuadros_comida[contador_comida] = Entry(panel_comida,
+                                            font=('Dosis', 19, 'bold'),
+                                            bd=1,
+                                            width=6,
+                                            state=DISABLED,
+                                            textvariable=texto_comida[contador_comida])
+    cuadros_comida[contador_comida].grid(row=contador_comida,
+                                         column=1)
+    contador_comida += 1
 
 # generar items bebida
 variables_bebida = []
-
-# generar items postre
-variables_postre = []
-
-
-contador_comida = 0
-for comida in lista_comidas:
-    variables_comida.append('')
-    variables_comida[contador_comida] = IntVar()
-    comida = Checkbutton(panel_comida, text=comida.title(), font=('Dosis', 19, 'bold'),
-                         onvalue=1, offvalue=0, variable=variables_comida[contador_comida])
-    comida.grid(row=contador_comida, column=0, sticky=W)
-    contador_comida += 1
-
+cuadros_bebida = []
+texto_bebida = []
 contador_bebida = 0
 for bebida in lista_bebidas:
     variables_bebida.append('')
     variables_bebida[contador_bebida] = IntVar()
-    bebida = Checkbutton(panel_bebida, text=bebida.title(), font=('Dosis', 19, 'bold'),
-                         onvalue=1,offvalue=0, variable=variables_bebida[contador_bebida])
-    bebida.grid(row=contador_bebida, column=0, sticky=W)
+    bebida = Checkbutton(panel_bebida,
+                         text=bebida.title(),
+                         font=('Dosis', 19, 'bold'),
+                         onvalue=1,
+                         offvalue=0,
+                         variable=variables_bebida[contador_bebida])
+    bebida.grid(row=contador_bebida,
+                column=0,
+                sticky=W)
+
+    # crear los cuadros de entrada
+    cuadros_bebida.append('')
+    texto_bebida.append('')
+    texto_bebida[contador_bebida] = StringVar()
+    texto_bebida[contador_bebida].set('0')
+    cuadros_bebida[contador_bebida] = Entry(panel_bebida,
+                                            font=('Dosis', 19, 'bold'),
+                                            bd=1,
+                                            width=6,
+                                            state=DISABLED,
+                                            textvariable=texto_bebida[contador_bebida])
+    cuadros_bebida[contador_bebida].grid(row=contador_bebida,
+                                         column=1)
     contador_bebida += 1
 
+# generar items postre
+variables_postre = []
+cuadros_postre = []
+texto_postre = []
 contador_postre = 0
 for postre in lista_postres:
     variables_postre.append('')
     variables_postre[contador_postre] = IntVar()
-    postre = Checkbutton(panel_postre, text=postre.title(), font=('Dosis', 19, 'bold'),
-                         onvalue=1,offvalue=0, variable=variables_postre[contador_postre])
-    postre.grid(row=contador_postre, column=0, sticky=W)
+    postre = Checkbutton(panel_postre,
+                         text=postre.title(),
+                         font=('Dosis', 19, 'bold'),
+                         onvalue=1,
+                         offvalue=0,
+                         variable=variables_postre[contador_postre])
+    postre.grid(row=contador_postre,
+                column=0,
+                sticky=W)
+
+    # crear los cuadros de entrada
+    cuadros_postre.append('')
+    texto_postre.append('')
+    texto_postre[contador_postre] = StringVar()
+    texto_postre[contador_postre].set('0')
+    cuadros_postre[contador_postre] = Entry(panel_postre,
+                                            font=('Dosis', 19, 'bold'),
+                                            bd=1,
+                                            width=6,
+                                            state=DISABLED,
+                                            textvariable=texto_postre[contador_postre])
+    cuadros_postre[contador_postre].grid(row=contador_postre,
+                                         column=1)
+
     contador_postre += 1
 
+# variables
+var_costo_comida = StringVar()
+var_costo_bebida = StringVar()
+var_costo_postre = StringVar()
+var_subtotal = StringVar()
+var_impuesto = StringVar()
+var_total = StringVar()
+
+# etiquetas de costo y campos de entrada "Comidas"
+etiqueta_costo_comida = Label(panel_costos,
+                              text='Costo Comida',
+                              font=('Dosis', 12, 'bold'),
+                              fg='white')
+etiqueta_costo_comida.grid(row=0, column=0)
+
+texto_costo_comida = Entry(panel_costos,
+                           font=('Dosis', 12, 'bold'),
+                           bd=1,
+                           width=10,
+                           state='readonly',
+                           textvariable=var_costo_comida)
+texto_costo_comida.grid(row=0, column=1,padx=41)
+
+# etiquetas de costo y campos de entrada "Bebidas"
+etiqueta_costo_bebida = Label(panel_costos,
+                              text='Costo Bebida',
+                              font=('Dosis', 12, 'bold'),
+                              fg='white')
+etiqueta_costo_bebida.grid(row=1, column=0)
+
+texto_costo_bebida = Entry(panel_costos,
+                           font=('Dosis', 12, 'bold'),
+                           bd=1,
+                           width=10,
+                           state='readonly',
+                           textvariable=var_costo_bebida)
+texto_costo_bebida.grid(row=1, column=1,padx=41)
+
+# etiquetas de costo y campos de entrada "Postres"
+etiqueta_costo_postre = Label(panel_costos,
+                              text='Costo Postre',
+                              font=('Dosis', 12, 'bold'),
+                              fg='white')
+etiqueta_costo_postre.grid(row=2, column=0)
+
+texto_costo_postre = Entry(panel_costos,
+                           font=('Dosis', 12, 'bold'),
+                           bd=1,
+                           width=10,
+                           state='readonly',
+                           textvariable=var_costo_postre)
+texto_costo_postre.grid(row=2, column=1,padx=41)
+
+# etiquetas de costo y campos de entrada "Subtotal"
+etiqueta_subtotal = Label(panel_costos,
+                              text='Subtotal',
+                              font=('Dosis', 12, 'bold'),
+                              fg='white')
+etiqueta_subtotal.grid(row=0, column=2)
+
+texto_subtotal = Entry(panel_costos,
+                           font=('Dosis', 12, 'bold'),
+                           bd=1,
+                           width=10,
+                           state='readonly',
+                           textvariable=var_subtotal)
+texto_subtotal.grid(row=0, column=3,padx=41)
+
+# etiquetas de costo y campos de entrada "Impuestos"
+etiqueta_impuesto = Label(panel_costos,
+                              text='Impuestos',
+                              font=('Dosis', 12, 'bold'),
+                              fg='white')
+etiqueta_impuesto.grid(row=1, column=2)
+
+texto_impuesto = Entry(panel_costos,
+                           font=('Dosis', 12, 'bold'),
+                           bd=1,
+                           width=10,
+                           state='readonly',
+                           textvariable=var_impuesto)
+texto_impuesto.grid(row=1, column=3,padx=41)
+
+# etiquetas de costo y campos de entrada "Total"
+etiqueta_total = Label(panel_costos,
+                              text='Total',
+                              font=('Dosis', 12, 'bold'),
+                              fg='white')
+etiqueta_total.grid(row=2, column=2)
+
+texto_total= Entry(panel_costos,
+                           font=('Dosis', 12, 'bold'),
+                           bd=1,
+                           width=10,
+                           state='readonly',
+                           textvariable=var_total)
+texto_total.grid(row=2, column=3,padx=41)
 
 
 # Evitar que la pantalla se cierre
