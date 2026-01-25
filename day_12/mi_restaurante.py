@@ -1,7 +1,9 @@
 from tkinter import *
 
 operador = ''
-
+precios_comida = [1.32, 1.65, 2.31, 3.22, 1.22, 1.99, 2.05, 2.65]
+precios_bebida = [0.25, 0.99, 1.21, 1.54, 1.08, 1.10, 2.00, 1.58]
+precios_postres = [1.54, 1.68, 1.32, 1.97, 2.55, 2.14, 1.94, 1.74]
 
 def click_boton(num):
     global operador
@@ -59,6 +61,36 @@ def revisar_check():
             texto_postre[z].set('0')
         z += 1
 
+def total():
+    suma_total_comida = 0
+    indice = 0
+    for cantidad in texto_comida:
+        suma_total_comida += (float(cantidad.get()) * precios_comida[indice])
+        indice += 1
+
+    suma_total_bebida = 0
+    indice = 0
+    for cantidad in texto_bebida:
+        suma_total_bebida += (float(cantidad.get()) * precios_bebida[indice])
+        indice += 1
+
+    suma_total_postre = 0
+    indice = 0
+    for cantidad in texto_postre:
+        suma_total_postre += (float(cantidad.get()) * precios_postres[indice])
+        indice += 1
+
+    suma_total = suma_total_comida + suma_total_bebida + suma_total_postre
+    impuestos = suma_total * 0.07
+    total = suma_total + impuestos
+
+    var_costo_comida.set(f'$ {round(suma_total_comida, 2)}')
+    var_costo_bebida.set(f'$ {round(suma_total_bebida, 2)}')
+    var_costo_postre.set(f'$ {round(suma_total_postre, 2)}')
+
+    var_subtotal.set(f'$ {round(suma_total, 2)}')
+    var_impuesto.set(f'$ {round(impuestos, 2)}')
+    var_total.set(f'$ {round(total, 2)}')
 
 # Crear instancia
 aplicacion = Tk()
@@ -330,6 +362,7 @@ texto_total.grid(row=2, column=3, padx=41)
 
 # botones
 lista_botones = ['Total', 'Recibo', 'Guardar', 'Reiniciar']
+botones_creados = []
 columnas = 0
 
 for boton in lista_botones:
@@ -339,9 +372,13 @@ for boton in lista_botones:
                    fg='black',
                    bd=1,
                    width=8)
+    botones_creados.append(boton)
     boton.grid(row=0,
                column=columnas)
     columnas += 1
+
+botones_creados[0].config(command=total)
+
 # area de recibo
 texto_recibo = Text(panel_recibo,
                     font=('Dosis', 12, 'bold'),
