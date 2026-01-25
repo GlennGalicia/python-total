@@ -56,4 +56,20 @@ def transformar_audio_en_texto():
             print(f"Ups algo ha salido mal.... Error: {type(e).__name__}: {e}")
             return 'Sigo esperando'
 
-transformar_audio_en_texto()
+
+# Asistente pueda ser escuchado
+def hablar(mensaje):
+    # encender el pyttsx3
+    engine = pyttsx3.init()
+    engine.setProperty('voice',id1)
+
+    # pronunciar mensaje
+    engine.say(mensaje)
+    engine.runAndWait()
+
+id1 = 'com.apple.eloquence.es-ES.Eddy'
+id2 = 'com.apple.eloquence.es-MX.Flo'
+id3 = 'com.apple.eloquence.es-MX.Grandma'
+id4 = 'com.apple.eloquence.es-MX.Shelley'
+
+hablar('Hola Glenn. espero tengas un buen dia')
