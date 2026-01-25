@@ -143,11 +143,51 @@ def pedir_cosas():
             hablar('Trabajo en ello')
             webbrowser.open('https://www.google.com/')
             continue
-        elif 'que día es hoy' in pedido:
+        elif 'qué día es hoy' in pedido:
             pedir_dia()
             continue
-        elif 'que hora es' in pedido:
+        elif 'qué hora es' in pedido:
             pedir_hora()
             continue
+        elif 'busca en wikipedia' in pedido:
+            hablar('buscar en Wikipedia')
+            pedido = pedido.replace('busca en wikipedia', '')
+            wikipedia.set_lang('es-ES')
+            resultado = wikipedia.summary(pedido, sentences=1)
+            hablar('Wikipedia dice lo siguiente:')
+            hablar(resultado)
+            continue
+        elif 'busca en internet' in pedido:
+            hablar('buscar en internet')
+            pedido = pedido.replace('busca en internet', '')
+            pywhatkit.search(pedido)
+            hablar('Esto encontre')
+            continue
+        elif 'reproducir' in pedido:
+            hablar('buena idea, ya comienzo a reproducirlo')
+            pywhatkit.playonyt(pedido)
+            continue
+        elif 'broma' in pedido:
+            hablar(pyjokes.get_joke('es'))
+            continue
+        elif 'precio de las acciones' in pedido:
+            accion = pedido.split('de')[-1].strip()
+            cartera = {'apple': 'APPL',
+                       'amazon': 'AMZN',
+                       'gogle': 'GOOGL'}
+
+            try:
+                accion_buscada = cartera[accion]
+                accion_buscada = yf.Ticker(accion_buscada)
+                precio_actual = accion_buscada.info['regularMaraketPrice']
+                hablar(f'La encontre, el precio de {accion} es de {precio_actual}')
+                continue
+            except:
+                hablar('NO la he encontrado....')
+                continue
+        elif 'adiós' in pedido:
+            hablar('Cuidate Miller')
+            break
+
 
 pedir_cosas()
