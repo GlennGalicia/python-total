@@ -150,6 +150,36 @@ def guardar():
     archivo.close()
     messagebox.showinfo("Información", "Su recibo ha sido guardado.")
 
+
+def reiniciar():
+    texto_recibo.delete(0.1, END)
+
+    for texto in texto_comida:
+        texto.set('0')
+    for bebida in texto_bebida:
+        bebida.set('0')
+    for postre in texto_postre:
+        postre.set('0')
+    for cuadro in cuadros_comida:
+        cuadro.config(state=DISABLED)
+    for cuadro in cuadros_bebida:
+        cuadro.config(state=DISABLED)
+    for cuadro in cuadros_postre:
+        cuadro.config(state=DISABLED)
+    for variable in variables_comida:
+        variable.set('0')
+    for variable in variables_bebida:
+        variable.set('0')
+    for variable in variables_postre:
+        variable.set('0')
+
+    var_costo_comida.set('')
+    var_costo_bebida.set('')
+    var_costo_postre.set('')
+    var_subtotal.set('')
+    var_impuesto.set('')
+    var_total.set('')
+
 # Crear instancia
 aplicacion = Tk()
 
@@ -438,6 +468,7 @@ for boton in lista_botones:
 botones_creados[0].config(command=total)
 botones_creados[1].config(command=recibo)
 botones_creados[2].config(command=guardar)
+botones_creados[3].config(command=reiniciar)
 
 # area de recibo
 texto_recibo = Text(panel_recibo,
