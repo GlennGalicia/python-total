@@ -22,6 +22,44 @@ def obtener_resultado():
     visor_calculadora.insert(0, resultado)
     operador = ''
 
+def revisar_check():
+    x = 0
+    for c in cuadros_comida:
+        if variables_comida[x].get() == 1:
+            cuadros_comida[x].config(state=NORMAL)
+            if cuadros_comida[x].get() == '0':
+                cuadros_comida[x].delete(0, END)
+            cuadros_comida[x].focus()
+        else:
+            cuadros_comida[x].config(state=DISABLED)
+            texto_comida[x].set('0')
+        x += 1
+
+    y = 0
+    for c in cuadros_bebida:
+        if variables_bebida[y].get() == 1:
+            cuadros_bebida[y].config(state=NORMAL)
+            if cuadros_bebida[y].get() == '0':
+                cuadros_bebida[y].delete(0, END)
+            cuadros_bebida[y].focus()
+        else:
+            cuadros_bebida[y].config(state=DISABLED)
+            texto_bebida[y].set('0')
+        y += 1
+
+    z = 0
+    for c in cuadros_postre:
+        if variables_postre[z].get() == 1:
+            cuadros_postre[z].config(state=NORMAL)
+            if cuadros_postre[z].get() == '0':
+                cuadros_postre[z].delete(0, END)
+            cuadros_postre[z].focus()
+        else:
+            cuadros_postre[z].config(state=DISABLED)
+            texto_postre[z].set('0')
+        z += 1
+
+
 # Crear instancia
 aplicacion = Tk()
 
@@ -102,7 +140,8 @@ for comida in lista_comidas:
                          font=('Dosis', 19, 'bold'),
                          onvalue=1,
                          offvalue=0,
-                         variable=variables_comida[contador_comida])
+                         variable=variables_comida[contador_comida],
+                         command=revisar_check)
     comida.grid(row=contador_comida,
                 column=0,
                 sticky=W)
@@ -135,7 +174,8 @@ for bebida in lista_bebidas:
                          font=('Dosis', 19, 'bold'),
                          onvalue=1,
                          offvalue=0,
-                         variable=variables_bebida[contador_bebida])
+                         variable=variables_bebida[contador_bebida],
+                         command=revisar_check)
     bebida.grid(row=contador_bebida,
                 column=0,
                 sticky=W)
@@ -168,7 +208,8 @@ for postre in lista_postres:
                          font=('Dosis', 19, 'bold'),
                          onvalue=1,
                          offvalue=0,
-                         variable=variables_postre[contador_postre])
+                         variable=variables_postre[contador_postre],
+                         command=revisar_check)
     postre.grid(row=contador_postre,
                 column=0,
                 sticky=W)
@@ -197,7 +238,7 @@ var_subtotal = StringVar()
 var_impuesto = StringVar()
 var_total = StringVar()
 
-# etiquetas de costo y campos de entrada "Comidas"
+# etiquetas de costo z campos de entrada "Comidas"
 etiqueta_costo_comida = Label(panel_costos,
                               text='Costo Comida',
                               font=('Dosis', 12, 'bold'),
