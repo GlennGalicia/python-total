@@ -1,6 +1,7 @@
 from tkinter import *
 import datetime
 import random
+from tkinter import filedialog, messagebox
 
 operador = ''
 precios_comida = [1.32, 1.65, 2.31, 3.22, 1.22, 1.99, 2.05, 2.65]
@@ -137,10 +138,17 @@ def recibo():
     texto_recibo.insert(END, f'-' * 61 + '\n')
     texto_recibo.insert(END, f'Subtotal: \t\t\t{var_subtotal.get()}\n')
     texto_recibo.insert(END, f'Impuestos: \t\t\t{var_impuesto.get()}\n')
-    texto_recibo.insert(END, f'Titak: \t\t\t{var_total.get()}\n')
+    texto_recibo.insert(END, f'Total: \t\t\t{var_total.get()}\n')
     texto_recibo.insert(END, f'-' * 61 + '\n')
-    texto_recibo.insert(END,'Lo esperamos pronto')
+    texto_recibo.insert(END, 'Lo esperamos pronto.')
 
+
+def guardar():
+    info_recibio = texto_recibo.get(1.0, END)
+    archivo = filedialog.asksaveasfile(mode='w', defaultextension=".txt")
+    archivo.write(info_recibio)
+    archivo.close()
+    messagebox.showinfo("Información", "Su recibo ha sido guardado.")
 
 # Crear instancia
 aplicacion = Tk()
@@ -429,6 +437,7 @@ for boton in lista_botones:
 
 botones_creados[0].config(command=total)
 botones_creados[1].config(command=recibo)
+botones_creados[2].config(command=guardar)
 
 # area de recibo
 texto_recibo = Text(panel_recibo,
