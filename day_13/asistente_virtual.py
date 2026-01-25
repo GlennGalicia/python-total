@@ -67,7 +67,7 @@ def transformar_audio_en_texto():
 def hablar(mensaje):
     # encender el pyttsx3
     engine = pyttsx3.init()
-    engine.setProperty('voice',id1)
+    engine.setProperty('voice', id1)
 
     # pronunciar mensaje
     engine.say(mensaje)
@@ -96,4 +96,15 @@ def pedir_dia():
     hablar(f'El día de hoy es: {calendario[dia_semana]}')
 
 
-pedir_dia()
+# informar la hora actual
+def pedir_hora():
+    # crear variable con datos de la hora
+    hora = datetime.datetime.now()
+
+    hora = f'En este momento son las {hora.hour} con {hora.minute} minutos y {hora.second} segundos.'
+
+    # decir la hora
+    hablar(hora)
+
+
+pedir_hora()
