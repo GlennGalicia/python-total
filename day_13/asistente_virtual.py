@@ -122,4 +122,32 @@ def saludo_inicial():
     hablar(f'{momento}, soy Jarvis, tu asistente personal. Por favor dime en que te puedo ayudar')
 
 
-saludo_inicial()
+# funcion central del asistente
+def pedir_cosas():
+    # activar el saludo inicial
+    saludo_inicial()
+
+    # variable de corte
+    comenzar = True
+
+    while comenzar:
+
+        # activar microfono y guardar en variable string
+        pedido = transformar_audio_en_texto().lower()
+
+        if 'abrir youtube' in pedido:
+            hablar('con gusto estoy abriebndo youtube')
+            webbrowser.open('https://www.youtube.com/')
+            continue
+        elif 'abrir navegador' in pedido:
+            hablar('Trabajo en ello')
+            webbrowser.open('https://www.google.com/')
+            continue
+        elif 'que día es hoy' in pedido:
+            pedir_dia()
+            continue
+        elif 'que hora es' in pedido:
+            pedir_hora()
+            continue
+
+pedir_cosas()
