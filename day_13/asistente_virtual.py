@@ -7,6 +7,12 @@ import webbrowser
 import datetime
 import wikipedia
 
+# opciones de voz
+id1 = 'com.apple.eloquence.es-ES.Eddy'
+id2 = 'com.apple.eloquence.es-MX.Flo'
+id3 = 'com.apple.eloquence.es-MX.Grandma'
+id4 = 'com.apple.eloquence.es-MX.Shelley'
+
 
 # escuchar microfono y devolver el audio como texto
 def transformar_audio_en_texto():
@@ -57,7 +63,7 @@ def transformar_audio_en_texto():
             return 'Sigo esperando'
 
 
-# Asistente pueda ser escuchado
+# asistente pueda ser escuchado
 def hablar(mensaje):
     # encender el pyttsx3
     engine = pyttsx3.init()
@@ -67,9 +73,27 @@ def hablar(mensaje):
     engine.say(mensaje)
     engine.runAndWait()
 
-id1 = 'com.apple.eloquence.es-ES.Eddy'
-id2 = 'com.apple.eloquence.es-MX.Flo'
-id3 = 'com.apple.eloquence.es-MX.Grandma'
-id4 = 'com.apple.eloquence.es-MX.Shelley'
 
-hablar('Hola Glenn. espero tengas un buen dia')
+# informar el dia de la semana
+def pedir_dia():
+    # crear datos con dia de hoy
+    hoy = datetime.date.today()
+    print(hoy)
+
+    # crear el dia de la semana
+    dia_semana = hoy.weekday()
+    print(dia_semana)
+
+    # diccionario dias de la semana
+    calendario = {0: 'Lunes',
+                  1: 'Martes',
+                  2: 'Miércoles',
+                  3: 'Jueves',
+                  4: 'Viernes',
+                  5: 'Sabado',
+                  6: 'Domingo'}
+    # decir dia de la semana
+    hablar(f'El día de hoy es: {calendario[dia_semana]}')
+
+
+pedir_dia()
