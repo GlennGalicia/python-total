@@ -1,5 +1,27 @@
 from tkinter import *
 
+operador = ''
+
+
+def click_boton(num):
+    global operador
+    operador += num
+    visor_calculadora.delete(0, END)
+    visor_calculadora.insert(END, operador)
+
+
+def borrar():
+    global operador
+    operador = ''
+    visor_calculadora.delete(0, END)
+
+def obtener_resultado():
+    global operador
+    resultado = str(eval(operador))
+    visor_calculadora.delete(0, END)
+    visor_calculadora.insert(0, resultado)
+    operador = ''
+
 # Crear instancia
 aplicacion = Tk()
 
@@ -30,7 +52,7 @@ panel_izquierdo = Frame(aplicacion, bd=0, relief=FLAT)
 panel_izquierdo.pack(side=LEFT)
 
 # Panel costos
-panel_costos = Frame(panel_izquierdo, bd=0, relief=FLAT,padx=50)
+panel_costos = Frame(panel_izquierdo, bd=0, relief=FLAT, padx=50)
 panel_costos.pack(side=BOTTOM)
 
 # Panel comidas
@@ -188,7 +210,7 @@ texto_costo_comida = Entry(panel_costos,
                            width=10,
                            state='readonly',
                            textvariable=var_costo_comida)
-texto_costo_comida.grid(row=0, column=1,padx=41)
+texto_costo_comida.grid(row=0, column=1, padx=41)
 
 # etiquetas de costo y campos de entrada "Bebidas"
 etiqueta_costo_bebida = Label(panel_costos,
@@ -203,7 +225,7 @@ texto_costo_bebida = Entry(panel_costos,
                            width=10,
                            state='readonly',
                            textvariable=var_costo_bebida)
-texto_costo_bebida.grid(row=1, column=1,padx=41)
+texto_costo_bebida.grid(row=1, column=1, padx=41)
 
 # etiquetas de costo y campos de entrada "Postres"
 etiqueta_costo_postre = Label(panel_costos,
@@ -218,55 +240,55 @@ texto_costo_postre = Entry(panel_costos,
                            width=10,
                            state='readonly',
                            textvariable=var_costo_postre)
-texto_costo_postre.grid(row=2, column=1,padx=41)
+texto_costo_postre.grid(row=2, column=1, padx=41)
 
 # etiquetas de costo y campos de entrada "Subtotal"
 etiqueta_subtotal = Label(panel_costos,
-                              text='Subtotal',
-                              font=('Dosis', 12, 'bold'),
-                              fg='white')
+                          text='Subtotal',
+                          font=('Dosis', 12, 'bold'),
+                          fg='white')
 etiqueta_subtotal.grid(row=0, column=2)
 
 texto_subtotal = Entry(panel_costos,
-                           font=('Dosis', 12, 'bold'),
-                           bd=1,
-                           width=10,
-                           state='readonly',
-                           textvariable=var_subtotal)
-texto_subtotal.grid(row=0, column=3,padx=41)
+                       font=('Dosis', 12, 'bold'),
+                       bd=1,
+                       width=10,
+                       state='readonly',
+                       textvariable=var_subtotal)
+texto_subtotal.grid(row=0, column=3, padx=41)
 
 # etiquetas de costo y campos de entrada "Impuestos"
 etiqueta_impuesto = Label(panel_costos,
-                              text='Impuestos',
-                              font=('Dosis', 12, 'bold'),
-                              fg='white')
+                          text='Impuestos',
+                          font=('Dosis', 12, 'bold'),
+                          fg='white')
 etiqueta_impuesto.grid(row=1, column=2)
 
 texto_impuesto = Entry(panel_costos,
-                           font=('Dosis', 12, 'bold'),
-                           bd=1,
-                           width=10,
-                           state='readonly',
-                           textvariable=var_impuesto)
-texto_impuesto.grid(row=1, column=3,padx=41)
+                       font=('Dosis', 12, 'bold'),
+                       bd=1,
+                       width=10,
+                       state='readonly',
+                       textvariable=var_impuesto)
+texto_impuesto.grid(row=1, column=3, padx=41)
 
 # etiquetas de costo y campos de entrada "Total"
 etiqueta_total = Label(panel_costos,
-                              text='Total',
-                              font=('Dosis', 12, 'bold'),
-                              fg='white')
+                       text='Total',
+                       font=('Dosis', 12, 'bold'),
+                       fg='white')
 etiqueta_total.grid(row=2, column=2)
 
-texto_total= Entry(panel_costos,
-                           font=('Dosis', 12, 'bold'),
-                           bd=1,
-                           width=10,
-                           state='readonly',
-                           textvariable=var_total)
-texto_total.grid(row=2, column=3,padx=41)
+texto_total = Entry(panel_costos,
+                    font=('Dosis', 12, 'bold'),
+                    bd=1,
+                    width=10,
+                    state='readonly',
+                    textvariable=var_total)
+texto_total.grid(row=2, column=3, padx=41)
 
 # botones
-lista_botones = ['Total','Recibo','Guardar','Reiniciar']
+lista_botones = ['Total', 'Recibo', 'Guardar', 'Reiniciar']
 columnas = 0
 
 for boton in lista_botones:
@@ -287,7 +309,58 @@ texto_recibo = Text(panel_recibo,
                     height=10)
 texto_recibo.grid(row=0, column=0)
 
+# calculadora
+visor_calculadora = Entry(panel_calculadora,
+                          font=('Dosis', 12, 'bold'),
+                          width=32,
+                          bd=1)
 
+visor_calculadora.grid(row=0,
+                       column=0,
+                       columnspan=4)
+
+botones_calculadora = ['7', '8', '9', '+', '4', '5', '6', '-',
+                       '1', '2', '3', 'x', 'R', 'B', '0', '/']
+botones_guardados = []
+
+fila = 1
+columna = 0
+
+for boton in botones_calculadora:
+
+    boton = Button(panel_calculadora,
+                   text=boton.title(),
+                   font=('Dosis', 12, 'bold'),
+                   bd=1,
+                   width=8)
+
+    botones_guardados.append(boton)
+    boton.grid(row=fila, column=columna)
+
+    if columna == 3:
+        fila += 1
+
+    columna += 1
+
+    if columna == 4:
+        columna = 0
+
+botones_guardados[0].config(command=lambda: click_boton('7'))
+botones_guardados[1].config(command=lambda: click_boton('8'))
+botones_guardados[2].config(command=lambda: click_boton('9'))
+botones_guardados[3].config(command=lambda: click_boton('+'))
+botones_guardados[4].config(command=lambda: click_boton('4'))
+botones_guardados[5].config(command=lambda: click_boton('5'))
+botones_guardados[6].config(command=lambda: click_boton('6'))
+botones_guardados[7].config(command=lambda: click_boton('-'))
+botones_guardados[8].config(command=lambda: click_boton('1'))
+botones_guardados[9].config(command=lambda: click_boton('2'))
+botones_guardados[10].config(command=lambda: click_boton('3'))
+botones_guardados[11].config(command=lambda: click_boton('*'))
+botones_guardados[12].config(command=obtener_resultado)
+botones_guardados[13].config(command=borrar)
+botones_guardados[14].config(command=lambda: click_boton('0'))
+botones_guardados[15].config(command=lambda: click_boton('/'))
 
 # Evitar que la pantalla se cierre
 aplicacion.mainloop()
