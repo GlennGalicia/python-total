@@ -1,5 +1,6 @@
 # Importamos Pandas
 import pandas as pd
+import matplotlib.pyplot as plt
 
 # Creamos una serie de números y hallamos su media
 numeros = pd.Series([1, 2, 3, 4, 5, 6, 7, 8])
@@ -90,9 +91,15 @@ print('\n')
 # print('\n')
 
 # Importamos Matplotlib y creamos un gráfico con los valores de la columna Kilometraje
+# plt.plot(ventas_auto['Kilometraje'])
+# plt.show()
 
 # Puede que un gráfico más apropiado en este caso sea un histograma?
-
-# Intentamos graficar la columna de precios
+# plt.hist(ventas_auto['Kilometraje'])
+# plt.show()
 
 # Elimina la puntuación de la columna de precios
+ventas_auto['Precio (USD)'] = ventas_auto['Precio (USD)'].str.replace(r'[\$,\.]', '', regex=True)
+ventas_auto['Precio (USD)'] = ventas_auto['Precio (USD)'].astype(int)/100
+plt.plot(ventas_auto['Precio (USD)'])
+plt.show()
