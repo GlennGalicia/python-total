@@ -3,13 +3,24 @@ name = "pythonproject"
 version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.9"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.9.4",
+    "numpy>=2.0.2",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
+    "speechrecognition>=3.14.5",
+]
 
 [dependency-groups]
 dev = [
     "beautifulsoup4>=4.14.3",
     "lxml>=6.0.2",
+    "pyaudio>=0.2.14",
+    "pyjokes>=0.8.3",
     "pylint>=3.3.9",
+    "pyttsx3>=2.99",
+    "pywhatkit>=5.4",
     "requests>=2.32.5",
     "send2trash>=2.1.0",
+    "yfinance>=1.1.0",
 ]
