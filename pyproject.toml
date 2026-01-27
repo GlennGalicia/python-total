@@ -4,6 +4,10 @@ version = "0.1.0"
 description = "Add your description here"
 requires-python = ">=3.9"
 dependencies = [
+    "matplotlib>=3.9.4",
+    "numpy>=2.0.2",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
     "speechrecognition>=3.14.5",
 ]
 
