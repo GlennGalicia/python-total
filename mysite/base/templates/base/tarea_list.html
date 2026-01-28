@@ -1,41 +1,37 @@
 {% extends 'base/principal.html' %}
 {% block content %}
 {% if request.user.is_authenticated %}
-    <p>
-        {{request.user}}
-    </p>
+<p>
+    Bienvenido: {{request.user}}
+</p>
 <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
-    <button type="submit">Salir</button>
+    <button class='btn' type="submit">Salir</button>
 </form>
 {% else %}
     <a href="{% url 'login' %}">Ingresar</a>
 {% endif %}
 <hr>
-<h1>Lista de Pendientes</h1>
+<h2>Lista de Pendientes</h2>
 <div>
     <a href="{% url 'crear-tarea' %}">Agregar tarea</a>
 </div>
 <br>
 <form method="get">
     <input type="text" name="area-buscar" placeholder="Tarea..."  value="{{valor_buscado}}">
-    <input type="submit" value="Buscar">
+    <input class='btn' type="submit" value="Buscar">
 </form>
 <br>
 <table>
     <tr>
-        <th>Elementos</th>
-        <th></th>
-        <th></th>
-        <th></th>
+        <th>Mis pendientes</th>
+        <th> </th>
+        <th> </th>
     </tr>
     {% for tarea in tareas %}
     <tr>
         <td>
             {{tarea.titulo}}
-        </td>
-        <td>
-            <a href="{% url 'tarea' tarea.id %}">Ver</a>
         </td>
         <td>
             <a href="{% url 'editar-tarea' tarea.id %}">Editar</a>

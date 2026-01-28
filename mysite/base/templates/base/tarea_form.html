@@ -6,6 +6,6 @@
 <form method="POST" action="">
     {% csrf_token %}
     {{form.as_p}}
-    <input type="submit" value="Guardar Tarea">
+    <input class='btn' type="submit" value="Guardar Tarea">
 </form>
 {% endblock content %}
