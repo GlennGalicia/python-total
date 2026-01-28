@@ -23,6 +23,11 @@
     <a href="{% url 'crear-tarea' %}">Agregar tarea</a>
 </div>
 <br>
+<form method="get">
+    <input type="text" name="area-buscar" placeholder="Tarea..."  value="{{valor_buscado}}">
+    <input type="submit" value="Buscar">
+</form>
+<br>
 <table>
     <tr>
         <th>Elementos</th>
