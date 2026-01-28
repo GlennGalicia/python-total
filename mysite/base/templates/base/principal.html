@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+    <title>Lista de Tareas</title>
+    <style>
+        html {
+            box-sizing: border-box;
+            font-size: 62.5%;
+            /* 1rem = 10px */
+        }
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit;
+        }
+        body {
+            background-color: #0E9594;
+            font-family: "Abel", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+            color: #F2542D;
+            padding-top: 60px;
+            font-size: 2rem;
+        }
+        .container {
+            max-width: 550px;
+            margin: auto;
+            background-color: #F5DFBB;
+            padding: 10px;
+            -webkit-box-shadow: 6px 6px 6px 6px rgba(0, 0, 0.21, 0.21);
+            box-shadow: 13px 13px 13px 13px  rgba(0, 0, 0.21, 0.21);
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: "Lato", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
+        p,td {
+            color: #562C2C;
+        }
+        a {
+            text-decoration: none;
+            color: #F2542D;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    {% block content %}
+
+    {% endblock content %}
+</div>
+</body>
+</html>

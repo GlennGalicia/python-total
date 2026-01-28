@@ -1,11 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Lista de Pendientes</title>
-</head>
-<body>
+{% extends 'base/principal.html' %}
+{% block content %}
 {% if request.user.is_authenticated %}
     <p>
         {{request.user}}
@@ -52,5 +46,4 @@
     </tr>
     {% endfor %}
 </table>
-</body>
-</html>
+{% endblock content %}

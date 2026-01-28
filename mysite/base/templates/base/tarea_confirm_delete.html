@@ -1,11 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Eliminar tarea</title>
-</head>
-<body>
+{% extends 'base/principal.html' %}
+{% block content %}
 <a href="{% url 'tareas' %}">Volver</a>
 <br>
 <form method="POST" >
@@ -13,5 +7,4 @@
     <p>Vas a eliminar esta tarea: "{{tareas}}"</p>
     <input type="submit" value="Eliminar">
 </form>
-</body>
-</html>
+{% endblock content %}

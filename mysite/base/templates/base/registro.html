@@ -1,11 +1,5 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Registrate</title>
-</head>
-<body>
+{% extends 'base/principal.html' %}
+{% block content %}
 <h1>Registrarse</h1>
 <form method="POST">
     {% csrf_token %}
@@ -13,5 +7,4 @@
     <input type="submit" value="Registrar">
 </form>
 <p>Ya tienes una cuenta? <a href="{% url 'login' %}">Ingresa</a></p>
-</body>
-</html>
+{% endblock content %}
