@@ -13,11 +13,13 @@
             font-size: 62.5%;
             /* 1rem = 10px */
         }
+
         *,
         *:before,
         *:after {
             box-sizing: inherit;
         }
+
         body {
             background-color: #0E9594;
             font-family: "Abel", sans-serif;
@@ -27,26 +29,31 @@
             padding-top: 60px;
             font-size: 2rem;
         }
+
         .container {
             max-width: 550px;
             margin: auto;
             background-color: #F5DFBB;
             padding: 10px;
             -webkit-box-shadow: 6px 6px 6px 6px rgba(0, 0, 0.21, 0.21);
-            box-shadow: 13px 13px 13px 13px  rgba(0, 0, 0.21, 0.21);
+            box-shadow: 13px 13px 13px 13px rgba(0, 0, 0.21, 0.21);
         }
+
         h1, h2, h3, h4, h5, h6 {
             font-family: "Lato", sans-serif;
             font-weight: 300;
             font-style: normal;
         }
-        p,td {
+
+        p, td {
             color: #562C2C;
         }
+
         a {
             text-decoration: none;
             color: #F2542D;
         }
+
         .btn {
             background-color: #127475;
             color: white;
@@ -54,7 +61,9 @@
             transition: background-color .3s ease-out;
             text-align: center;
             border: none;
+            border-radius: 5px;
         }
+
         .barra-superior {
             display: flex;
             flex-direction: row;
@@ -63,7 +72,7 @@
             padding: 1rem;
             border-radius: 5px 5px 0 0;
         }
-        .envoltorio-items-tarea {}
+
         .envoltorio-tarea {
             display: flex;
             flex-direction: row;
@@ -72,31 +81,63 @@
             padding: 2rem;
             border-top: 1px solid #562C2C;
         }
+
         .titulo-tarea {
             display: flex;
         }
-        .titulo-tarea a{
+
+        .titulo-tarea a {
             text-decoration: none;
             margin-left: 1rem;
         }
+
         .icono-tarea-completa {
             height: 2rem;
             width: 2rem;
             border-radius: 50px;
             background-color: #0E9594;
         }
+
         .icono-tarea-incompleta {
             height: 2rem;
             width: 2rem;
             border-radius: 50px;
             background-color: gray;
         }
+
         .enlace-eliminar {
             text-decoration: none;
             font-weight: bold;
             font-size: 2rem;
             line-height: 0;
             color: #562C2C;
+        }
+
+        #envoltorio-agregar-buscar {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 1rem;
+        }
+
+        #enlace-agregar {
+            color: #562C2C;
+            font-weight: 4rem;
+            text-shadow: 1px 1px #562C2C;
+        }
+
+        input[type='text'],
+        input[type='password'],
+        textarea {
+            border: 1px solid #F2542D;
+            border-radius: 5px;
+            padding: 0.5rem;
+            width: 100%;
+        }
+
+        label {
+            padding-top: 10px !important;
+            display: block;
         }
     </style>
 </head>

@@ -15,13 +15,15 @@
     <a href="{% url 'login' %}">Ingresar</a>
     {% endif %}
 </div>
-<!--<a href="{% url 'crear-tarea' %}">Agregar tarea</a>-->
-<!--<br>-->
-<!--<form method="get">-->
-<!--    <input type="text" name="area-buscar" placeholder="Tarea..." value="{{valor_buscado}}">-->
-<!--    <input class='btn' type="submit" value="Buscar">-->
-<!--</form>-->
-<br>
+
+<div id="envoltorio-agregar-buscar">
+    <form method="get" style="margin-top: 20px; display: flex; flex-direction: row;">
+        <input type="text" name="area-buscar" placeholder="Tarea..." value="{{valor_buscado}}">
+        <input class='btn' type="submit" value="Buscar">
+    </form>
+    <a id="enlace-agregar" href="{% url 'crear-tarea' %}">+</a>
+</div>
+
 <div class="envoltorio-items-tarea">
     {% for tarea in tareas %}
 
