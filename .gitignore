@@ -5,6 +5,7 @@ venv/
 # Cache Python
 __pycache__/
 *.pyc
+*.pyo
 
 # IDEs
 .idea/
@@ -17,3 +18,7 @@ __pycache__/
 *.spec
 build/
 dist/
+
+# Base de datos local
+*.sqlite3
+db.sqlite3
