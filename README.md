@@ -30,19 +30,19 @@ A comprehensive guide to learning Python programming from scratch, covering fund
 
 Clone the repo and run this comand in your terminal:
 
-```py
-$ uv
-sync
+```python
+$ uv sync
 ```
 
 Notes
-> **What makes up a language?**
->
->We can say that every language (machine or natural, it doesn't matter) consists of the following elements:
->
-> - **An alphabet:** a set of symbols used to build words of a certain language (e.g., the Latin alphabet for English, the Cyrillic alphabet for Russian, Kanji for Japanese, and so on)
-> - **A lexis:** (aka a dictionary) a set of words the language offers its users (e.g., the word "computer" comes from the English language dictionary, while "cmoptrue" doesn't; the word "chat" is present both in English and French dictionaries, but their meanings are different)
-> - **Syntax:** a set of rules (formal or informal, written or felt intuitively) used to determine if a certain string of words forms a valid sentence (e.g., "I am a python" is a syntactically correct phrase, while "I a python am" isn't)
-> - **Semantics:** a set of rules determining if a certain phrase makes sense (e.g., "I ate a doughnut" makes sense, but "A doughnut ate me" doesn't)
+
+**What makes up a language?**
+
+We can say that every language (machine or natural, it doesn't matter) consists of the following elements:
+
+- **An alphabet:** a set of symbols used to build words of a certain language (e.g., the Latin alphabet for English, the Cyrillic alphabet for Russian, Kanji for Japanese, and so on)
+- **A lexis:** (aka a dictionary) a set of words the language offers its users (e.g., the word "computer" comes from the English language dictionary, while "cmoptrue" doesn't; the word "chat" is present both in English and French dictionaries, but their meanings are different)
+- **Syntax:** a set of rules (formal or informal, written or felt intuitively) used to determine if a certain string of words forms a valid sentence (e.g., "I am a python" is a syntactically correct phrase, while "I a python am" isn't)
+- **Semantics:** a set of rules determining if a certain phrase makes sense (e.g., "I ate a doughnut" makes sense, but "A doughnut ate me" doesn't)
 
 
