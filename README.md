@@ -1,6 +1,10 @@
 # { 🐍 Python Total }
 
+Author: Glenn Galicia [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/glenn-galicia/)
+
 A comprehensive guide to learning Python programming from scratch, covering fundamental concepts and practical examples.
+
+[Roadmap](https://roadmap.sh/python) for a Python developer.
 
 | # Day | Topics                                                                          |
 |-------|:--------------------------------------------------------------------------------|
@@ -13,9 +17,25 @@ A comprehensive guide to learning Python programming from scratch, covering fund
 | 07    | [OOP](./day_07/day_07.md)                                                       |
 | 08    | [Modules, Packages, Error Handling, Testing & More](./day_08/day_08.md)         |
 | 09    | [Standard Libraries: Collections, Files, Time, Math & More](./day_09/day_09.md) |
+| 10    | [Pygame Module](./day_10/day_10.md)                                             |
+| 11    | [Web Scraping](./day_11/day_11.md)                                              |
+| 12    | [Tkinder Module](./day_12/day_12.md)                                            |
+| 13    | [Pyttsx3 Module](./day_13/day_13.md)                                            |
+| 14    | [Numpy, Pandas](./day_14/day_14.md)                                             |
+| 15    | [Django Framework](./mysite/day_15.md)                                          |
 
 ### More information
 
+[UV](https://docs.astral.sh/uv/) was implemented as a package handler. For installation instructions, please refer to the [official documentation](https://docs.astral.sh/uv/getting-started/installation/).
+
+Clone the repo and run this comand in your terminal:
+
+```py
+$ uv
+sync
+```
+
+Notes
 > **What makes up a language?**
 >
 >We can say that every language (machine or natural, it doesn't matter) consists of the following elements:
@@ -25,5 +45,4 @@ A comprehensive guide to learning Python programming from scratch, covering fund
 > - **Syntax:** a set of rules (formal or informal, written or felt intuitively) used to determine if a certain string of words forms a valid sentence (e.g., "I am a python" is a syntactically correct phrase, while "I a python am" isn't)
 > - **Semantics:** a set of rules determining if a certain phrase makes sense (e.g., "I ate a doughnut" makes sense, but "A doughnut ate me" doesn't)
 
-Author: Glenn Galicia [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/glenn-galicia/)
 
